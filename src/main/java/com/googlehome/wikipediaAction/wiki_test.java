@@ -1,4 +1,4 @@
-package com.googlehome.wikipedia_guesser;
+package com.googlehome.wikipediaAction;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -23,8 +23,11 @@ public class wiki_test{
             String text = json.getString("extract").replace(title, "redacted");
 
             String newText = text.replace(title, "redacted");
+
+            return new String[1];
         }catch(Exception e){
             e.printStackTrace();
+            return new String[1];
         }
     }
 }
