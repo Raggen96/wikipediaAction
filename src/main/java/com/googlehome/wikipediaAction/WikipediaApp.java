@@ -37,15 +37,13 @@ public class WikipediaApp extends DialogflowApp {
 
         String answer = (String) request.getConversationData().get("person");
         String[] wikiTekst = Wikipedia.getRandomArticle();
-        while (answer != wikiTekst[0]){
-            responseBuilder.add("Try again");
-            String answer1 = (String) request.getConversationData().get("person");
+        if (answer == wikiTekst[0]){
 
+            responseBuilder.add("Correct answer");
         }
-        responseBuilder.add("Correct answer");
-
-
-        responseBuilder.add("");
+        else{
+            responseBuilder.add("U suck. The answer was" + wikiTekst[0]);
+        }
 
         return responseBuilder.build();
     }
